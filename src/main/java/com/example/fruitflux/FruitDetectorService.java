@@ -15,7 +15,7 @@ public class FruitDetectorService {
 	public Mono<String> fakeFruitDetector(final List<String> fruits) {
 		// fruits.stream().forEach(System.out::println);
 
-		return Flux.fromIterable(fruits).filter(fruit -> fruit == FAKE_FRUIT)
+		return Flux.fromIterable(fruits).filter(fruit -> fruit.equals(FAKE_FRUIT))
 				.doOnNext(fakeFruit -> System.out.println(fakeFruit + " is not a real fruit!")).singleOrEmpty();
 
 	}

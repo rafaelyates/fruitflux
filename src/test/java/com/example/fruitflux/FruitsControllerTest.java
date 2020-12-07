@@ -27,7 +27,7 @@ public class FruitsControllerTest {
 	public void testRestApiWithInvalidValuesTest() {
 		testClient.post().uri("/").contentType(MediaType.APPLICATION_JSON)
 				.body(BodyInserters.fromValue(List.of("apple", FruitDetectorService.FAKE_FRUIT))).exchange()
-				.expectStatus().isOk().expectBody(String.class).isEqualTo(null);
+				.expectStatus().isOk().expectBody(String.class).isEqualTo(FruitDetectorService.FAKE_FRUIT);
 	}
 
 }
